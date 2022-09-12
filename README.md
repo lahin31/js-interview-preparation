@@ -39,17 +39,21 @@ doSomething();
 // window {0: global, window: Window, name: Meherun, ...}
 ```
 
-The parent scope of `doSomething` function is the window object. Same goes for Arrow Function also,
+The parent scope of `doSomething` function is the window object.
+
+## this inside Arrow Function
 
 ```js
-const doSomething = function() {
+const doSomething = () => {
     this.name = "Meherun";
     console.log(this);
 }
 
 doSomething();
-// window {0: global, window: Window, name: Meherun, ...}
+// {name: Meherun}
 ```
+The `doSomething` function is not inside of an object nor a function so it its created own this object.
+
 # Section 3: Function
 
 ## Function Statement
