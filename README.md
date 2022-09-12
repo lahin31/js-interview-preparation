@@ -8,7 +8,7 @@ This is a preparation guide for your next JavaScript Interview. You will learn s
 
 <summary><b>Expand Table of Contents</b></summary>
 
-- [Section 1: this keyword](section-1-this-keyword)
+- [Section 1: this keyword](#section-1-this-keyword)
 - [Section 2: Bind, Call and Apply]
 - [Section 3: Function](#section-3-function)
 - [Section 4: Hoisting]
