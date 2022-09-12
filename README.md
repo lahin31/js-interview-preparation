@@ -24,7 +24,7 @@ In JavaScript this keyword means reference of its context.
 
 ```js
 console.log(this);
-// window {0: global, window: Window}
+// window { 0: global, window: Window }
 ```
 
 ## this inside regular function
@@ -36,7 +36,7 @@ function doSomething() {
 }
 
 doSomething();
-// window {0: global, window: Window, name: Meherun, ...}
+// window { 0: global, window: Window, name: Meherun, ... }
 ```
 
 The parent scope of `doSomething` function is the window object.
@@ -46,13 +46,25 @@ The parent scope of `doSomething` function is the window object.
 ```js
 const doSomething = () => {
     this.name = "Meherun";
-    console.log(this);
+    console.log(this); // { name: Meherun }
 }
 
 doSomething();
-// {name: Meherun}
 ```
-The `doSomething` function is not inside of an object nor a function so it its created own this object.
+
+If we don't provide any this environment inside `doSomething` function this will go up to its parent context and grab its this.
+
+```js
+this.name = "Meherun";
+const doSomething = () => {
+    console.log(this); // { name: 'Meherun' }
+}
+
+console.log(this); // { name: 'Meherun' }
+
+doSomething();
+```
+
 
 # Section 3: Function
 
