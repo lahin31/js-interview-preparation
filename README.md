@@ -13,10 +13,43 @@ This is a preparation guide for your next JavaScript Interview. You will learn s
 - [Section 3: Function](#section-3-function)
 - [Section 4: Hoisting]
 - [Section 5: Closure]
-- 
 
 </details>
 
+# Section 1: this keyword
+
+In JavaScript this keyword means reference of its context.
+
+## this inside global or window object
+
+```js
+console.log(this);
+// window {0: global, window: Window}
+```
+
+## this inside regular function
+
+```js
+function doSomething() {
+    this.name = "Meherun";
+    console.log(this);
+}
+
+doSomething();
+// window {0: global, window: Window, name: Meherun, ...}
+```
+
+The parent scope of `doSomething` function is the window object. Same goes for Arrow Function also,
+
+```js
+const doSomething = function() {
+    this.name = "Meherun";
+    console.log(this);
+}
+
+doSomething();
+// window {0: global, window: Window, name: Meherun, ...}
+```
 # Section 3: Function
 
 ## Function Statement
