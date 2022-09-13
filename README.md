@@ -13,6 +13,7 @@ This is a preparation guide for your next JavaScript Interview. You will learn s
 - [Section 3: Function](#section-3-function)
 - [Section 4: Hoisting]
 - [Section 5: Closure]
+- [Section 6: Problem Solving](#section-6-problem-solving)
 
 </details>
 
@@ -121,3 +122,32 @@ const add = function(a, b) {}
 ## Difference between Function Statement & Function Expression
 
 The difference between them is Hoisting.
+
+# Section 6: Problem Solving
+
+## Check if a string is Pangram or not
+
+Means if string consist 26 english alphabets or not.
+
+```js
+const str = "The quick brown fox jumps over the lazy dog";
+
+function isPangram(text) {
+    const tracks = new Array(26).fill(false);
+    let index;
+
+    for(let i = 0; i < text.length; i++) {
+        if(text[i] >= 'A' && text[i] <= 'Z') {
+            index = text.charCodeAt(i) - 'A'.charCodeAt(0);
+        } else if(text[i] >= 'a' && text[i] <= 'z') {
+            index = text.charCodeAt(i) - 'a'.charCodeAt(0);
+        }
+
+        tracks[index] = true;
+    }
+
+    return tracks.every(track => track === true)
+}
+
+console.log(isPangram(str)); // true
+```
