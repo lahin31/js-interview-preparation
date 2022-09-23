@@ -14,6 +14,7 @@ This is a preparation guide for your next JavaScript Interview. You will learn s
 - [Section 4: Hoisting]
 - [Section 5: Closure]
 - [Section 6: Problem Solving](#section-6-problem-solving)
+- [Section 7: Polyfill](#section-7-polyfill) 
 
 </details>
 
@@ -170,4 +171,48 @@ const checkAnagram = (str1, str2) => {
 }
 
 console.log(checkAnagram(value1, value2)); // true
+```
+
+# Section 7: Polyfill
+
+## .map() polyfill
+
+```js
+Array.prototype.myMap = function (cb) {
+
+    let temp = [];
+    
+    for(let index = 0; index < this.length; index++) { // this - is the actual object that is currently attached with myMap parent
+        temp.push(cb(this[index], index);
+    }
+    
+    return temp;
+
+}
+
+const arr = [1, 2, 3];
+const res = arr.myMap(item => item * 2);
+
+console.log(res); // [2, 4, 6]
+```
+
+## .filter() polyfill
+
+```js
+Array.prototype.myFilter = function (cb) {
+
+    const temp = [];
+
+    for(let index = 0; index < this.length; index++) {
+        if(cb(this[index], index)) temp.push(this[index]);
+    }
+
+    return temp;
+
+}
+
+const arr = [1, 2, 3];
+const res = arr.myFilter(item => item < 2);
+
+console.log(res); // [1]
 ```
