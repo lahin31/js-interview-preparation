@@ -216,3 +216,24 @@ const res = arr.myFilter(item => item < 2);
 
 console.log(res); // [1]
 ```
+
+## .reduce() polyfill
+
+```js
+Array.prototype.myReduce = function (cb, initialValue) {
+
+  let accumulator = initialValue;
+
+  for(let index = 0; index < this.length; index++) {
+    accumulator = cb(accumulator, this[index]) 
+  }
+
+  return accumulator;
+    
+}
+
+const arr = [1, 2, 3];
+
+const res = arr.myReduce((accumulator, current) => accumulator + current, 0)
+console.log(res); // 6
+```
