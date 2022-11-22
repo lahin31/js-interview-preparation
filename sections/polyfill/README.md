@@ -132,3 +132,31 @@ function myAllSettledPromise(tasks) {
   });
 }
 ```
+
+## .bind() polyfill
+
+```js
+const user = {
+  name: "lahin",
+  age: 30,
+  getInfo() {
+    return this.name + " " + this.age;
+  },
+};
+
+const new_user = {
+  name: "hussain",
+  age: 40,
+};
+
+Function.prototype.myBind = function (scope, ...args) {
+  scope._this = this;
+
+  return function () {
+    return scope._this(...args);
+  };
+};
+
+const result = user.getInfo.myBind(new_user);
+console.log(result()); // hussain 40
+```
