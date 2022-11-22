@@ -4,12 +4,12 @@
 
 ```js
 function doSomething() {
-  this.name = "Meherun";
+  this.name = "Hussain";
   console.log(this);
 }
 
 doSomething();
-// window { 0: global, window: Window, name: Meherun, ... }
+// window { 0: global, window: Window, name: Hussain, ... }
 ```
 
 The parent scope of `doSomething` function is the window object.
@@ -18,25 +18,27 @@ The parent scope of `doSomething` function is the window object.
 
 ```js
 const doSomething = () => {
-  this.name = "Meherun";
-  console.log(this); // { name: Meherun }
+  this.name = "Hussain";
+  console.log(this); // { name: Hussain }
 };
+
+doSomething();
+```
+
+Since doSomething() is an Arrow Function and we are providing this (this.name) inside of it so it will work based on this context.
+
+```js
+this.name = "Hussain";
+const doSomething = () => {
+  console.log(this); // { name: 'Hussain' }
+};
+
+console.log(this); // { name: 'Hussain' }
 
 doSomething();
 ```
 
 If we don't provide any this environment inside `doSomething` function this will go up to its parent context and grab its this.
-
-```js
-this.name = "Meherun";
-const doSomething = () => {
-  console.log(this); // { name: 'Meherun' }
-};
-
-console.log(this); // { name: 'Meherun' }
-
-doSomething();
-```
 
 ## this inside object
 
