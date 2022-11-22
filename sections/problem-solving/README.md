@@ -19,3 +19,19 @@ const checkAnagram = (str1, str2) => {
 
 console.log(checkAnagram(value1, value2)); // true
 ```
+
+## Create a Debounce Function
+
+```js
+function debounce(fn, delay) {
+  let timer;
+  return function () {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      fn();
+    }, delay);
+  };
+}
+```
