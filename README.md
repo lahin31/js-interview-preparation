@@ -107,40 +107,4 @@ const res = arr.myMap(item => item * 2);
 console.log(res); // [2, 4, 6]
 ```
 
-## .filter() polyfill
-
-```js
-Array.prototype.myFilter = function (cb) {
-  const temp = [];
-
-  for (let index = 0; index < this.length; index++) {
-    if (cb(this[index], index)) temp.push(this[index]);
-  }
-
-  return temp;
-};
-
-const arr = [1, 2, 3];
-const res = arr.myFilter((item) => item < 2);
-
-console.log(res); // [1]
-```
-
-## .reduce() polyfill
-
-```js
-Array.prototype.myReduce = function (cb, initialValue) {
-  let accumulator = initialValue;
-
-  for (let index = 0; index < this.length; index++) {
-    accumulator = cb(accumulator, this[index]);
-  }
-
-  return accumulator;
-};
-
-const arr = [1, 2, 3];
-
-const res = arr.myReduce((accumulator, current) => accumulator + current, 0);
-console.log(res); // 6
-```
+🔗 [**Learn More**](./sections/polyfill/README.md)
