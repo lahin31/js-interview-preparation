@@ -31,6 +31,68 @@ console.log(this);
 
 🔗 [**Learn More**](./sections/this/README.md)
 
+# Section 2: Bind, Call and Apply
+
+```js
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  },
+};
+
+const member = {
+  firstName: "Muhammad",
+  lastName: "Lahin",
+};
+
+let fullName = person.fullName.bind(member);
+fullName(); // Muhammad Lahin
+```
+
+.bind() method creates a new function called fullName(), and change the person object's this context to newly created member object's this context.
+
+```js
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function (age) {
+    return `${this.firstName} ${this.lastName} age is ${age}`;
+  },
+};
+
+const member = {
+  firstName: "Muhammad",
+  lastName: "Lahin",
+};
+
+person.fullName.call(member, 24); // Muhammad Lahin age is 24
+```
+
+.call() method calls a function with a given this context value and arguments provided individually.
+
+```js
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function (age, birthYear) {
+    return `${this.firstName} ${this.lastName} age is ${age} birth year is ${birthYear}`;
+  },
+};
+
+const member = {
+  firstName: "Muhammad",
+  lastName: "Lahin",
+};
+
+person.fullName.apply(member, [24, 1994]); // Muhammad Lahin age is 24 birth year is 1994
+```
+
+.apply() method invokes the function on given context and allows to pass arguments as an array.
+
+In general Call and Apply both are similar only difference is the way they get arguments.
+
 # Section 3: Function
 
 ## Function Statement
