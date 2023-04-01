@@ -100,9 +100,9 @@ In general Call and Apply both are similar only difference is the way they get a
 
 Each Object and Array contains a property or object called [[Prototype]]. Which indicated to the prototype of that object, this can be null or points to another object.
 
-## What is **proto**?
+## What is `__proto__`?
 
-[[Prototype]] is an internal property that cannot be accessed directly, so we have **proto** in order to access that prototype.
+[[Prototype]] is an internal property that cannot be accessed directly, so we have `__proto__` in order to access that prototype.
 
 # Section 4: Function
 
