@@ -10,11 +10,12 @@ This is a preparation guide for your next JavaScript Interview. You will learn s
 
 - [Section 1: this keyword](#section-1-this-keyword)
 - [Section 2: Bind, Call and Apply](#section-2-bind-call-and-apply)
-- [Section 3: Function](#section-3-function)
-- [Section 4: Hoisting]
-- [Section 5: Closure]
-- [Section 6: Problem Solving](#section-6-problem-solving)
-- [Section 7: Polyfill](#section-7-polyfill)
+- [Section 3: ProtoType](#section-3-prototype)
+- [Section 4: Function](#section-4-function)
+- [Section 5: Hoisting]
+- [Section 6: Closure]
+- [Section 7: Problem Solving](#section-7-problem-solving)
+- [Section 8: Polyfill](#section-8-polyfill)
 
 </details>
 
@@ -93,7 +94,17 @@ person.fullName.apply(member, [24, 1994]); // Muhammad Lahin age is 24 birth yea
 
 In general Call and Apply both are similar only difference is the way they get arguments.
 
-# Section 3: Function
+# Section 3: ProtoType
+
+## What is ProtoType?
+
+Each Object and Array contains a property or object called [[Prototype]]. Which indicated to the prototype of that object, this can be null or points to another object.
+
+## What is **proto**?
+
+[[Prototype]] is an internal property that cannot be accessed directly, so we have **proto** in order to access that prototype.
+
+# Section 4: Function
 
 ## Function Statement
 
@@ -115,7 +126,7 @@ const add = function (a, b) {};
 
 The difference between them is Hoisting.
 
-# Section 6: Problem Solving
+# Section 7: Problem Solving
 
 ## Check if a string is Pangram or not
 
@@ -146,7 +157,7 @@ console.log(isPangram(str)); // true
 
 🔗 [**Learn More**](./sections/problem-solving/README.md)
 
-# Section 7: Polyfill
+# Section 8: Polyfill
 
 ## .map() polyfill
 

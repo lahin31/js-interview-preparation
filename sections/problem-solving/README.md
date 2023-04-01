@@ -35,3 +35,29 @@ function debounce(fn, delay) {
   };
 }
 ```
+
+## Find the Longest Consecutive Charecter in a given string
+
+```js
+const longestConsecutiveChar = str => {
+  let longest = { char: "", count: 0 };
+  let current = { char: "", count: 0 };
+
+  for (let char of str) {
+    if (char === current.char) {
+      current.count++;
+    } else {
+      current.char = char;
+      current.count = 1;
+    }
+
+    if (longest.count < current.count) {
+      longest = { ...current };
+    }
+  }
+
+  return longest.char;
+};
+
+console.log(longestConsecutiveChar("aaaabbcccc")); // a
+```
