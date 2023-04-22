@@ -39,8 +39,9 @@ function debounce(fn, delay) {
 ## Find the Longest Consecutive Charecter in a given string
 
 ```js
-const longestConsecutiveChar = str => {
+const longestConsecutiveChar = (str) => {
   let track = { char: "", count: 0 };
+  let result = { chat: "", count: 0 };
 
   for (let i = 0; i < str.length; i++) {
     if (track.char !== str[i]) {
@@ -49,10 +50,35 @@ const longestConsecutiveChar = str => {
     } else if (track.char === str[i]) {
       track.count++;
     }
+
+    if (track.count > result.count) {
+      result = { ...track };
+    }
   }
 
-  return track.char;
+  return result.char;
 };
 
-console.log(longestConsecutiveChar("aaaabbcccc")); // a
+console.log(longestConsecutiveChar("aabbb")); // b
+console.log(longestConsecutiveChar("aaabb")); // a
+```
+
+## Find if a string contains duplicate or not
+
+```js
+const isDuplicate = (str) => {
+  const map = new Map();
+
+  for (let item of str) {
+    if (map.has(item)) { // the time complexity for .has is O(1)
+      return true;
+    }
+    map.set(item, true);
+  }
+
+  return false;
+};
+
+console.log(isDuplicate("11223")); // true
+console.log(isDuplicate("12345")); // false
 ```
