@@ -40,23 +40,18 @@ function debounce(fn, delay) {
 
 ```js
 const longestConsecutiveChar = str => {
-  let longest = { char: "", count: 0 };
-  let current = { char: "", count: 0 };
+  let track = { char: "", count: 0 };
 
-  for (let char of str) {
-    if (char === current.char) {
-      current.count++;
-    } else {
-      current.char = char;
-      current.count = 1;
-    }
-
-    if (longest.count < current.count) {
-      longest = { ...current };
+  for (let i = 0; i < str.length; i++) {
+    if (track.char !== str[i]) {
+      track.char = str[i];
+      track.count = 1;
+    } else if (track.char === str[i]) {
+      track.count++;
     }
   }
 
-  return longest.char;
+  return track.char;
 };
 
 console.log(longestConsecutiveChar("aaaabbcccc")); // a
