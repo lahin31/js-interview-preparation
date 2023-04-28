@@ -82,3 +82,27 @@ const isDuplicate = (str) => {
 console.log(isDuplicate("11223")); // true
 console.log(isDuplicate("12345")); // false
 ```
+
+## Two Sum 
+
+```js
+function twoSum(arr, target) {
+  let track = {};
+  let res = null;
+
+  for (let i = 0; i < arr.length; i++) {
+    let sub = target - arr[i];
+
+    if (track.hasOwnProperty(arr[i])) {
+      res = [track[arr[i]], i];
+      break;
+    }
+
+    track[sub] = i;
+  }
+
+  return res;
+}
+
+console.log(twoSum([7, 3, 6, 4], 11)); // [0, 3]
+```
