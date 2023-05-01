@@ -85,6 +85,13 @@ console.log(isDuplicate("12345")); // false
 
 ## Two Sum 
 
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+Input,
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+
 ```js
 function twoSum(arr, target) {
   let track = {};
@@ -104,5 +111,5 @@ function twoSum(arr, target) {
   return res;
 }
 
-console.log(twoSum([7, 3, 6, 4], 11)); // [0, 3]
+console.log(twoSum([2,7,11,15], 9)); // [0, 1]
 ```
