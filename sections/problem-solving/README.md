@@ -115,7 +115,8 @@ console.log(twoSum([2,7,11,15], 9)); // [0, 1]
 
 ## Retry API after a specific type
 
-```jsconst makeRandom = (min, max) =>
+```js
+const makeRandom = (min, max) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const retryAPI = (fetcher, maxRetryCount) => {
