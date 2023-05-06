@@ -151,7 +151,6 @@ const retryAPI = (fetcher, maxRetryCount) => {
 const fetchGithub = async (username) => {
   const response = await fetch(`https://api.githu.com/users/${username}`);
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
