@@ -112,3 +112,47 @@ function twoSum(arr, target) {
 
 console.log(twoSum([2,7,11,15], 9)); // [0, 1]
 ```
+
+## Retry API after a specific type
+
+```jsconst makeRandom = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
+const retryAPI = (fetcher, maxRetryCount) => {
+  return new Promise((resolve, reject) => {
+    let retries = 0;
+    const caller = () => {
+      fetcher("lahin31")
+        .then((data) => {
+          resolve(data);
+        })
+        .catch((err) => {
+          if (retries < maxRetryCount) {
+            retries++;
+            
+            const retryAfter = makeRandom(1000, 5000);
+
+            setTimeout(() => {
+              console.log("Retrying in " + retryAfter + " seconds");
+
+              caller();
+            }, retryAfter);
+          } else {
+            reject(err);
+          }
+        });
+    };
+    retries = 1;
+    caller();
+  });
+};
+
+const fetchGithub = async (username) => {
+  const response = await fetch(`https://api.githu.com/users/${username}`);
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+retryAPI(fetchGithub, 5);
+```
